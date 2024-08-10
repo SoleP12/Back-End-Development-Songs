@@ -49,6 +49,10 @@ def parse_json(data):
     return json.loads(json_util.dumps(data))
 
 ######################################################################
+@app.route("/health")
+def get_health():
+    return {"status": "OK"}
+
 @app.route("/count")
 def get_count():
     count = db.songs.count_documents({})
